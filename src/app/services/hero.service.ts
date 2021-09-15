@@ -70,4 +70,19 @@ export class HeroService {
       catchError(this.handleError("RemoveHero"))
     )
   }
+
+  searchByName(term: string): Observable<Hero[]> {
+    let _term = term.trim();
+    let queryUrl = `${this.apiEndpoint}/?name=${_term}`;
+    if (!_term) {
+      // if not search term, return empty hero array.
+      return of([]);
+    }
+    return this.http.get<Hero[]>(queryUrl).pipe(
+      tap(x => x.length ?
+        this.logMessage(`found heroes matching "${term}"`) : this.logMessage(`no heroes matching "${term}"`)),
+      catchError(this.handleError<Hero[]>("SearchHero"))
+    );
+  }
+
 }
