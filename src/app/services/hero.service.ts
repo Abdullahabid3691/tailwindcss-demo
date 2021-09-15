@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from "rxjs";
+import {Observable, of, pipe} from "rxjs";
 import {Hero} from "../interfaces/hero";
 import {MessageService} from "./message.service";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
@@ -48,11 +48,17 @@ export class HeroService {
     )
   }
 
+  addHero(hero: Hero): Observable<Hero> {
+    return this.http.post<Hero>(this.apiEndpoint, hero, this.httpOptions).pipe(
+      tap(_hero => this.logMessage(`Successfully Added Hero ${_hero.name}`)),
+      catchError(this.handleError<Hero>("AddHero"))
+    )
+  }
+
   private handleError<T>(operation: string, results?: T) {
     return (error?: any) => {
       let message = error.message || error.statusText;
       this.logMessage(`${operation} failed: ${message}`);
-      console.log(error)
       return of(results as T);
     };
   }

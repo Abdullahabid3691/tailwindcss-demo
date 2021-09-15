@@ -1,4 +1,11 @@
 <div>
+
+  <div>
+  <h4>Add Hero:</h4>
+  <input type="text" [(ngModel)]="newHeroName">
+    <button (click)="addHero()">Add</button>
+  </div>
+
   <ul>
     <li *ngFor="let hero of heroes"
         [class.selected]="hero == selectedHero">
