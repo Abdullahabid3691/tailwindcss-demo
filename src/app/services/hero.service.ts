@@ -62,4 +62,12 @@ export class HeroService {
       return of(results as T);
     };
   }
+
+  removeHero(id: number) {
+    const endpoint = `${this.apiEndpoint}/${id}`;
+    return this.http.delete(endpoint, this.httpOptions).pipe(
+      tap(_ => this.logMessage("Removed Hero")),
+      catchError(this.handleError("RemoveHero"))
+    )
+  }
 }

@@ -6,12 +6,13 @@
     <button (click)="addHero()">Add</button>
   </div>
 
-  <ul>
-    <li *ngFor="let hero of heroes"
-        [class.selected]="hero == selectedHero">
-      <a routerLink="/heroes/{{hero.id}}">
-        <span>{{hero.id}}: {{hero.name}}</span>
-      </a>
-    </li>
-  </ul>
+ <ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+    <button class="delete" title="delete hero"
+      (click)="removeHero(hero.id)">x</button>
+  </li>
+</ul>
 </div>
