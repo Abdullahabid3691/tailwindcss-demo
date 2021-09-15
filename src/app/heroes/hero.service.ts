@@ -15,4 +15,9 @@ export class HeroService {
     this.messageService.add("Fetching Heroes from server....")
     return of(HEROES);
   }
+
+  getHero(hero_id: number) {
+    const hero = HEROES.find(hero => hero.id == hero_id)
+    return of(hero);
+  }
 }
