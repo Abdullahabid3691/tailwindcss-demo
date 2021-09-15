@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {Hero} from "./hero";
-import {HeroService} from "./hero.service";
-import {MessageService} from "../messages/message.service";
+import {Component, OnInit} from '@angular/core';
+import {HeroService} from "../../services/hero.service";
+import {MessageService} from "../../services/message.service";
+import {Hero} from "../../interfaces/hero";
 
 @Component({
   selector: 'app-heroes',
@@ -12,7 +12,8 @@ export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
   selectedHero?: Hero;
 
-  constructor(private heroService: HeroService, private messageService: MessageService) { }
+  constructor(private heroService: HeroService, private messageService: MessageService) {
+  }
 
   ngOnInit(): void {
     this.fetchHeroes()
@@ -23,7 +24,7 @@ export class HeroesComponent implements OnInit {
     this.messageService.add("Selected Hero " + hero.id + ": " + hero.name)
   }
 
-  private fetchHeroes():void {
+  private fetchHeroes(): void {
     this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes)
   }
 
