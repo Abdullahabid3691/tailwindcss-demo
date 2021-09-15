@@ -5,6 +5,7 @@ module.exports = {
   //     './src/**/*.{html,ts}',
   //   ]
   // }],
+  purge: false, // causes break in builds on Heroku.
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},

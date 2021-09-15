@@ -1,9 +1,11 @@
 <div>
 
   <div>
+    <h4>------------</h4>
   <h4>Add Hero:</h4>
-  <input type="text" [(ngModel)]="newHeroName">
-    <button (click)="addHero()">Add</button>
+  <input type="text" [(ngModel)]="newHeroName"  placeholder="Type here... " >
+    <button (click)="addHero()" style="color: orange; background-color: crimson">Add</button>
+    <h4>------------</h4>
   </div>
 
  <ul class="heroes">
@@ -12,7 +14,7 @@
       <span class="badge">{{hero.id}}</span> {{hero.name}}
     </a>
     <button class="delete" title="delete hero"
-      (click)="removeHero(hero.id)">x</button>
+      (click)="removeHero(hero.id)" style="color: orange; background-color: crimson">x</button>
   </li>
 </ul>
 </div>
