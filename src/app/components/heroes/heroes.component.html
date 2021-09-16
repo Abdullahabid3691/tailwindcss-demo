@@ -1,4 +1,4 @@
-<div class="grid h-40 rounded-box">
+<div class="grid h-auto rounded-box">
   <div class="lg:flex lg:items-center lg:justify-between">
     <div class="flex-1 min-w-0">
       <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
@@ -13,17 +13,18 @@
               class="flex-1 px-6 py-2 font-semibold select-none rounded-md text-gray-800 bg-gray-200 hover:bg-gray-300">
         Add
       </button>
-    </div>
+      <app-list [heroItems]="heroes" (heroRemoved)="removeHero($event)"></app-list>
 
-    <ul class="heroes">
-      <li *ngFor="let hero of heroes">
-        <a routerLink="/detail/{{hero.id}}">
-          <span class="badge">{{hero.id}}</span> {{hero.name}}
-        </a>
-        <button class="delete" title="delete hero"
-                (click)="removeHero(hero.id)" style="color: orange; background-color: crimson">x
-        </button>
-      </li>
-    </ul>
+    </div>
+    <!--    <ul class="heroes">-->
+    <!--      <li *ngFor="let hero of heroes">-->
+    <!--        <a routerLink="/detail/{{hero.id}}">-->
+    <!--          <span class="badge">{{hero.id}}</span> {{hero.name}}-->
+    <!--        </a>-->
+    <!--        <button class="delete" title="delete hero"-->
+    <!--                (click)="removeHero(hero.id)" style="color: orange; background-color: crimson">x-->
+    <!--        </button>-->
+    <!--      </li>-->
+    <!--    </ul>-->
   </div>
 </div>

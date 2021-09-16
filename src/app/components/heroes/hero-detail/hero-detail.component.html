@@ -1,12 +1,20 @@
 <div *ngIf="hero">
-  <h2>{{hero.name | uppercase}} Details</h2>
-  <span>-----------</span>
-  <div><span>id: </span>{{hero.id}}</div>
-  <div>
-    <label for="name">Hero name: </label>
-    <br>
-    <input id="name" [(ngModel)]="hero.name" placeholder="Type name here">
-    <input (click)="saveHero()" type="submit" value="Update Hero" style="color: orange; background-color: crimson">
+  <div class="grid h-40 rounded-box">
+    <div class="lg:flex lg:items-center lg:justify-between">
+      <div class="flex-1 min-w-0">
+        <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
+          Update Hero
+        </h2>
+        <label for="name">Name: </label>
+        <input id="name" [(ngModel)]="hero.name" placeholder="Type name here">
+        <button (click)="saveHero()" type="submit"
+                class="flex-1 px-6 py-2select-none rounded-md text-gray-800 bg-green-200 hover:bg-gray-300"
+        > Update
+        </button>
+      </div>
+    </div>
+    <button class="rounded-md text-gray-800 bg-gray-200 hover:bg-gray-300"
+            (click)="goBack()">Back
+    </button>
   </div>
-  <button (click)="goBack()" style="color: orange; background-color: crimson">Back</button>
 </div>
