@@ -1,12 +1,17 @@
-<div>
-  <h3>Top Heroes</h3>
-  <ul>
-    <li *ngFor="let hero of heroes">
-      <a routerLink="/heroes/{{hero.id}}">
-        <span>{{hero.id}}: {{hero.name}}</span>
-      </a>
-    </li>
-  </ul>
+<div class="lg:flex lg:items-center lg:justify-between">
+  <div class="flex-1 min-w-0">
+    <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
+    Top Heros
+    </h2>
+<!--    <ul class="list-none md:list-disc space-y-2">-->
+<!--      <li *ngFor="let hero of heroes">-->
+<!--        <a routerLink="/heroes/{{hero.id}}">-->
+<!--          <span>{{hero.id}}: {{hero.name}}</span>-->
+<!--        </a>-->
+<!--      </li>-->
+<!--    </ul>-->
+  <app-list></app-list>
+  </div>
 </div>
 
 <app-search></app-search>

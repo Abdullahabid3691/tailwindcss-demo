@@ -9,9 +9,15 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
+      listStyleType: {
+       square: 'square',
+       roman: 'upper-roman',
+      }
   },
   variants: {
-    extend: {},
+    extend: {
+      textColor: ['visited'],
+    }
   },
   plugins: [],
 }

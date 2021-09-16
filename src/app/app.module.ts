@@ -13,6 +13,8 @@ import {MessagesComponent} from "./components/messages/messages.component";
 import {DashboardComponent} from "./components/dashboard/dashboard.component";
 import {HttpClientModule} from "@angular/common/http";
 import { SearchComponent } from './components/search/search.component';
+import { NavComponent } from './components/nav/nav.component';
+import { ListComponent } from './components/list/list.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { SearchComponent } from './components/search/search.component';
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    SearchComponent
+    SearchComponent,
+    NavComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
