@@ -1,20 +1,29 @@
-<div>
+<div class="grid h-40 rounded-box">
+  <div class="lg:flex lg:items-center lg:justify-between">
+    <div class="flex-1 min-w-0">
+      <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
+        Add Heroes
+      </h2>
+      <input type="text" name="name"
+             class="focus:ring-indigo-500 h-6 w-2/6	 focus:border-indigo-500  pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
+             placeholder="Type Hero's Name here..."
+             [(ngModel)]="newHeroName"
+      >
+      <button (click)="addHero()"
+              class="flex-1 px-6 py-2 font-semibold select-none rounded-md text-gray-800 bg-gray-200 hover:bg-gray-300">
+        Add
+      </button>
+    </div>
 
-  <div>
-    <h4>------------</h4>
-  <h4>Add Hero:</h4>
-  <input type="text" [(ngModel)]="newHeroName"  placeholder="Type here... " >
-    <button (click)="addHero()" style="color: orange; background-color: crimson">Add</button>
-    <h4>------------</h4>
+    <ul class="heroes">
+      <li *ngFor="let hero of heroes">
+        <a routerLink="/detail/{{hero.id}}">
+          <span class="badge">{{hero.id}}</span> {{hero.name}}
+        </a>
+        <button class="delete" title="delete hero"
+                (click)="removeHero(hero.id)" style="color: orange; background-color: crimson">x
+        </button>
+      </li>
+    </ul>
   </div>
-
- <ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
-    </a>
-    <button class="delete" title="delete hero"
-      (click)="removeHero(hero.id)" style="color: orange; background-color: crimson">x</button>
-  </li>
-</ul>
 </div>
